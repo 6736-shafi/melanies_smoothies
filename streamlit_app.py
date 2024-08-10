@@ -30,12 +30,12 @@ ingredients_list = st.multiselect(
 )
 
 if ingredients_list:
-    ingredients_string = ' '.join(ingredients_list)
+    ingredients_string = ' '
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen +' '
         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
         fv_df = st.datafram(data = fruityvice_response.json(),use_container_width=True)
-        fst.text(fruityvice_response)
+        #fst.text(fruityvice_response)
     
     # Construct the insert statement
     my_insert_stmt = f"""INSERT INTO smoothies.public.orders(ingredients, name_on_order) 
